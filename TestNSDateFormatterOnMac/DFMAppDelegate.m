@@ -49,7 +49,7 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshResult)
-                                                 name:(NSString *)kCFLocaleCurrentLocaleDidChangeNotification
+                                                 name:NSCurrentLocaleDidChangeNotification
                                                object:nil];
     
     [self refreshResult];

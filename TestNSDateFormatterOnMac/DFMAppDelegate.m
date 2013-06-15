@@ -78,10 +78,10 @@
     self.defaultIsCurrent = [[NSCalendar currentCalendar] isEqual:dateFormatter.calendar] ? @"Yes" : @"No";
     
     self.calendarIdentifierDefault = dateFormatter.calendar.calendarIdentifier;
-    [dateFormatter setDateFormat:self.formatDefault = @"yyyy/MM/dd HH:mm:ss zzz"];
+    dateFormatter.dateFormat = self.formatDefault = @"yyyy/MM/dd HH:mm:ss zzz";
     self.formatDefaultMatch = ![dateFormatter.calendar.calendarIdentifier isEqualToString:NSJapaneseCalendar] ? @"#" : @"";
     self.formattedDefault = [dateFormatter stringFromDate:self.now];
-    [dateFormatter setDateFormat:self.formatDefaultA = @"GGyy/MM/dd HH:mm:ss zzz"];
+    dateFormatter.dateFormat = self.formatDefaultA = @"GGyy/MM/dd HH:mm:ss zzz";
     self.formatDefaultMatchA = [dateFormatter.calendar.calendarIdentifier isEqualToString:NSJapaneseCalendar] ? @"#" : @"";
     self.formattedDefaultA = [dateFormatter stringFromDate:self.now];
     
@@ -91,10 +91,10 @@
     dateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
     
     self.calendarIdentifierSystem = dateFormatter.calendar.calendarIdentifier;
-    [dateFormatter setDateFormat:self.formatSystem = @"yyyy/MM/dd HH:mm:ss zzz"];
+    dateFormatter.dateFormat = self.formatSystem = @"yyyy/MM/dd HH:mm:ss zzz";
     self.formatSystemMatch = ![dateFormatter.calendar.calendarIdentifier isEqualToString:NSJapaneseCalendar] ? @"#" : @"";
     self.formattedSystem = [dateFormatter stringFromDate:self.now];
-    [dateFormatter setDateFormat:self.formatSystemA = @"GGGGGyy/MM/dd HH:mm:ss zzz"];
+    dateFormatter.dateFormat = self.formatSystemA = @"GGGGGyy/MM/dd HH:mm:ss zzz";
     self.formatSystemMatchA = [dateFormatter.calendar.calendarIdentifier isEqualToString:NSJapaneseCalendar] ? @"#" : @"";
     self.formattedSystemA = [dateFormatter stringFromDate:self.now];
     
@@ -104,9 +104,9 @@
     dateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
     
     self.calendarIdentifierJapanese = dateFormatter.calendar.calendarIdentifier;
-    [dateFormatter setDateFormat:self.formatJapanese = @"GGyy/MM/dd HH:mm:ss zzz"];
+    dateFormatter.dateFormat = self.formatJapanese = @"GGyy/MM/dd HH:mm:ss zzz";
     self.formattedJapanese = [dateFormatter stringFromDate:self.now];
-    [dateFormatter setDateFormat:self.formatJapaneseA = @"GGGGGyy/MM/dd HH:mm:ss zzz"];
+    dateFormatter.dateFormat = self.formatJapaneseA = @"GGGGGyy/MM/dd HH:mm:ss zzz";
     self.formattedJapaneseA = [dateFormatter stringFromDate:self.now];
     
     // Gregorian
@@ -115,7 +115,7 @@
     dateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
     
     self.calendarIdentifierGregorian = dateFormatter.calendar.calendarIdentifier;
-    [dateFormatter setDateFormat:self.formatGregorian = @"yyyy/MM/dd HH:mm:ss zzz"];
+    dateFormatter.dateFormat = self.formatGregorian = @"yyyy/MM/dd HH:mm:ss zzz";
     self.formattedGregorian = [dateFormatter stringFromDate:self.now];
 }
 

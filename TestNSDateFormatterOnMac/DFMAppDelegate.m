@@ -39,6 +39,12 @@
 @property (strong, nonatomic, readwrite) NSString *formatGregorian;
 @property (strong, nonatomic, readwrite) NSString *formattedGregorian;
 
+@property (strong, nonatomic, readwrite) NSString *calendarIdentifierBuddhist;
+@property (strong, nonatomic, readwrite) NSString *formatBuddhist;
+@property (strong, nonatomic, readwrite) NSString *formattedBuddhist;
+@property (strong, nonatomic, readwrite) NSString *formatBuddhistA;
+@property (strong, nonatomic, readwrite) NSString *formattedBuddhistA;
+
 @end
 
 #pragma mark -
@@ -115,8 +121,19 @@
     dateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
     
     self.calendarIdentifierGregorian = dateFormatter.calendar.calendarIdentifier;
-    dateFormatter.dateFormat = self.formatGregorian = @"yyyy/MM/dd HH:mm:ss zzz";
+    dateFormatter.dateFormat = self.formatGregorian = @"GG yyyy/MM/dd HH:mm:ss zzz";
     self.formattedGregorian = [dateFormatter stringFromDate:self.now];
+    
+    // Buddhist:
+    dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSBuddhistCalendar];
+    dateFormatter.formatterBehavior = NSDateFormatterBehavior10_4;
+    
+    self.calendarIdentifierBuddhist = dateFormatter.calendar.calendarIdentifier;
+    dateFormatter.dateFormat = self.formatBuddhist = @"GG yyyy/MM/dd HH:mm:ss zzz";
+    self.formattedBuddhist = [dateFormatter stringFromDate:self.now];
+    dateFormatter.dateFormat = self.formatBuddhistA = @"GGGGG yyyy/MM/dd HH:mm:ss zzz";
+    self.formattedBuddhistA = [dateFormatter stringFromDate:self.now];
 }
 
 @end
